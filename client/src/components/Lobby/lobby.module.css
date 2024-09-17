@@ -1,0 +1,36 @@
+.input-container{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.input-container input{
+    text-align: left;
+    padding: 0.25rem 1rem;
+    border-radius: 4rem;
+    width: 100%;
+    background: var(--interactive);
+    color: white;
+}
+
+.specific-round{
+    border-radius: 0 4rem 4rem 0 !important;
+}
+
+.combined{
+    gap: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.room-container{
+    display: flex;
+    flex-direction: column;
+    height: 20rem;
+    overflow-y: auto;
+    gap: 0.5rem;
+}
+

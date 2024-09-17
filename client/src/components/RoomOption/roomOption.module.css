@@ -1,0 +1,10 @@
+.room{
+    width: 100%;
+    background: var(--interactive);
+    border-radius: 4rem;
+    font-weight: 400;
+    display: flex;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
