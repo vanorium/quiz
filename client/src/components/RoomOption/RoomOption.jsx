@@ -6,11 +6,16 @@ export default function Room({data}){
     const [roomName, setRoomName] = useState('')
 
     
-    console.log("Создается панелька с этой инфой: ", data)
     useEffect(() =>{
-        socket.emit('getIdName', data.roomId)
-        socket.on('getIdName2', (msg) => setRoomName(msg))
-    }, [])
+        console.log("Создается панелька с этой инфой: ", data)
+        socket.emit('defineIdName', data.roomId)
+        const handleGetIdName = (msg) => {
+            console.log(msg)
+            setRoomName(msg)
+        }
+        socket.once('getIdName', handleGetIdName)
+    }, [data])
+    
 
     return(
         <div className={`${s.room} hover`}>

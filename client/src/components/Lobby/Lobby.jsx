@@ -41,7 +41,7 @@ export default function Lobby() {
                 </div> */}
                 <div className={s['room-container']}>
                     <div style={{marginTop:'1rem'}}></div>
-                    {rooms.map((room, i) => {console.log("Будет создано:", room);return<RoomOption key={i} data={room} />})}
+                    {rooms.map(room => <RoomOption key={room.roomId} data={room} />)}
                 </div>
                 <div className='btn hover' onClick={createRoom}>Create a room</div>
             </div>

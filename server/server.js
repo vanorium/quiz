@@ -27,9 +27,10 @@ io.on('connection', socket => {
         socket.emit('log', `${socket.id}`)
     })
 
-    socket.on('getIdName', (id) => {
+    socket.on('defineIdName', (id) => {
         const name = io.sockets.sockets.get(id)?.name
-        socket.emit('getIdName2', name)
+        console.log('запрошено от', socket.id, 'ответ: ', name)
+        socket.emit('getIdName', name)
     })
 
     socket.on('setName', name => socket.name=name)
