@@ -1,0 +1,26 @@
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 120px;
+    height: 60px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    filter: blur(0.5rem) contrast(10) hue-rotate(60deg) grayscale(100%);
+    mix-blend-mode: darken;
+  }
+  .loader:before,
+  .loader:after {
+    content: "";
+    width: 2rem;
+    border-radius: 16rem;
+    background: #000000;
+    animation: l3 1s ease-in-out infinite alternate;
+  }
+  .loader:after {
+    --s:-1;
+  }
+  @keyframes l3{
+    90%,100% {transform: translate(calc(var(--s,1)*1.5rem))}
+  }

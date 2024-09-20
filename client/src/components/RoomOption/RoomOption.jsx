@@ -1,26 +1,10 @@
-import { useEffect, useState } from "react"
 import s from "./roomOption.module.css"
 
-export default function Room({data}){
-    
-    const [roomName, setRoomName] = useState('')
-
-    
-    useEffect(() =>{
-        console.log("Создается панелька с этой инфой: ", data)
-        socket.emit('defineIdName', data.roomId)
-        const handleGetIdName = (msg) => {
-            console.log(msg)
-            setRoomName(msg)
-        }
-        socket.once('getIdName', handleGetIdName)
-    }, [data])
-    
-
+export default function RoomOption({size, ownerName, onClick}){
     return(
-        <div className={`${s.room} hover`}>
-            <div>{`${roomName}'s room`}</div>
-            <div>{`${data.sockets.length}`}</div>
+        <div onClick={onClick} className={`${s.room} hover`}>
+            <div>{`${ownerName}'s room`}</div>
+            <div>{`${size}`}</div>
         </div>
     )
 } 

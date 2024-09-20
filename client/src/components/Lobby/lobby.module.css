@@ -7,7 +7,7 @@
 
 .input-container input{
     text-align: left;
-    padding: 0.25rem 1rem;
+    padding: 0.5rem 1rem;
     border-radius: 4rem;
     width: 100%;
     background: var(--interactive);
@@ -26,11 +26,17 @@
     box-sizing: border-box;
 }
 
-.room-container{
-    display: flex;
-    flex-direction: column;
-    height: 20rem;
-    overflow-y: auto;
-    gap: 0.5rem;
+@keyframes shaking {
+
+    50%{
+        scale: 1.04;
+        background: rgba(255, 0, 0, 0.5);
+        /* filter: blur(0.1rem); */
+    }
 }
 
+.shaking{
+    animation-name: shaking;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
