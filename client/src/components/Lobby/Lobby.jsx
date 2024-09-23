@@ -11,27 +11,39 @@ export default function Lobby() {
 
     const navigate = useNavigate()
     useEffect(() => {
+        socket.emit('reset')
+
         socket.emit('getId')
         socket.once('getId', console.log)
-        socket.on('log', console.log)
-
-        socket.emit('joined_updateRooms') // joined => show the old list of rooms 
+        socket.once('log', console.log)
+        
         socket.on('updateRooms', setRooms)
-
-        const created_go2room = () => navigate('/room')
-        const joined_go2room = () => navigate('/room')
-        socket.on('roomCreated', created_go2room)
-        socket.on('joinedRoom', joined_go2room)
-
+    
+        socket.once('roomCreated', roomCreated)
+        socket.once('approveJoinRoom', approveJoinRoom)
+        
         return () => {
             socket.off('updateRooms', setRooms)
-            socket.off('roomCreated', created_go2room)
-            socket.off('joinedRoom', joined_go2room)
         }
     },[])
 
+    const roomCreated = () => {
+        console.log('created, going to /room')
+        navigate('/room')
+    }
+
+    const joinRoom = (ownerId) => {
+        if(isNameCorrect()) socket.emit('joinRoom', ownerId, name)
+    }
+
+    const approveJoinRoom = (roomId) => {
+        console.log('approved (joined)')
+        socket.emit('approvedJoinRoom', roomId)
+        navigate('/room')
+    }
+
     const handleSetName = (event) => {
-        const name = event.target.value
+        const name = event.target.value.slice(0,20)
         setName(name)
         socket.emit('setName', name.trim())
     }
@@ -48,21 +60,17 @@ export default function Lobby() {
         if(isNameCorrect()) socket.emit('createRoom', name)
     }
 
-    const joinRoom = (ownerId) => {
-        if(isNameCorrect()) socket.emit('joinRoom', ownerId, name)
-    }
-
     return (
         <div className='wrapper'>
             <div className='panel back'>
                     <div className={s['input-container']}>
-                        <input className={`hover ${s[shaking]}`} placeholder="My name is..." value={name} onChange={handleSetName} />
+                        <input className={`interactive ${s[shaking] || ''}`} placeholder="My name is..." value={name} onChange={handleSetName} />
                     </div>
                 <div className='list'>
                     {rooms.length==0 && <div className='comment'>No rooms</div>}
-                    {rooms.map(room => <RoomOption onClick={() => joinRoom(room.ownerId)} key={room.ownerId} size={room.sockets.length} ownerName={room.ownerName} />)}
+                    {rooms.map(room => <RoomOption onClick={() => joinRoom(room.sockets[0])} key={room.sockets[0]} size={room.sockets.length} ownerName={room.ownerName} />)}
                 </div>
-                <div className='btn hover' onClick={createRoom}>Create a room</div>
+                <div className='btn interactive' onClick={createRoom}>Create a room</div>
             </div>
         </div>
     )

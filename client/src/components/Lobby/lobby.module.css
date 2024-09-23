@@ -8,7 +8,7 @@
 .input-container input{
     text-align: left;
     padding: 0.5rem 1rem;
-    border-radius: 4rem;
+    border-radius: 0.4rem;
     width: 100%;
     background: var(--interactive);
     color: white;
