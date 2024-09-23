@@ -2,16 +2,13 @@ import { useEffect, useState, useRef } from 'react'
 import s from './counting.module.css'
 import { useNavigate } from 'react-router-dom';
 
-
 const wait = 2
 
 export default function Counting() {
-
-    const startTime = useRef(new Date())
-
-    const [count, setCount] = useState(false) // it's false, otherwise not approved connections to '/counting' will show '5'(wait)
-
+    
     const navigate = useNavigate()
+    const startTime = useRef(new Date())
+    const [count, setCount] = useState(false) // it's false, otherwise not approved connections to '/counting' will show '5'(wait)
 
     useEffect(() => {
 
@@ -35,7 +32,10 @@ export default function Counting() {
 
         socket.once('stopInterval', () => clearInterval(interval))
 
-        socket.once('go2game', () => navigate('/game'))
+        socket.once('initialSetupRound', () => {
+            navigate('/game')
+            socket.emit('initialSetupRound_final')
+        })
 
         return () => clearInterval(interval);
     }, []);

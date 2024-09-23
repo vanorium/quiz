@@ -5,11 +5,11 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Lobby() {
 
+    const navigate = useNavigate()
     const [name, setName] = useState('')
     const [rooms, setRooms] = useState([])
     const [shaking, setShaking] = useState(false)
 
-    const navigate = useNavigate()
     useEffect(() => {
         socket.emit('reset')
 
@@ -20,8 +20,11 @@ export default function Lobby() {
         socket.on('updateRooms', setRooms)
     
         socket.once('roomCreated', roomCreated)
-        socket.once('approveJoinRoom', approveJoinRoom)
+        socket.once('joinRoom_final', joinRoom_final)
         
+        socket.emit('getName')
+        socket.once('getName', setName)
+
         return () => {
             socket.off('updateRooms', setRooms)
         }
@@ -36,10 +39,9 @@ export default function Lobby() {
         if(isNameCorrect()) socket.emit('joinRoom', ownerId, name)
     }
 
-    const approveJoinRoom = (roomId) => {
-        console.log('approved (joined)')
-        socket.emit('approvedJoinRoom', roomId)
+    const joinRoom_final = (roomId) => {
         navigate('/room')
+        socket.emit('joinRoom_final', roomId)
     }
 
     const handleSetName = (event) => {

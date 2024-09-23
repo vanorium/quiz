@@ -1,8 +1,8 @@
 @keyframes smooth {
     from{
         opacity: 0;
-        scale: 0.5;
-        transform: rotate(45deg);
+        scale: 0.67;
+        transform: rotate(7deg);
     }
 
     to{
@@ -12,7 +12,7 @@
     }
 }
 
-.smooth{
+.smooth-active{
     animation-name: smooth;
     animation-duration: 0.33s;
     animation-timing-function: ease-in-out;
@@ -29,4 +29,27 @@
     display: flex;
     align-items: center;
     gap: 0.25rem;
+}
+
+.timer{
+    transition: 0.14s ease-in-out;
+    background: white;
+    border-radius: 4rem;
+    height: 1rem;
+}
+
+@keyframes timer {
+    from{
+        width: 100%;
+    }
+
+    to{
+        width: 0;
+    }
+}
+
+.timer-active{
+    animation-name: timer;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
 }
