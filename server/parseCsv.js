@@ -2,6 +2,7 @@ const parseCsv = (csv) => {
     csv = csv.replaceAll(" ", "").replaceAll("\n", ",").split(",");
     const removeList = [];
 
+    // for a couple of answers ("1,2,3...")
     // csv.forEach((el, i) => {
     //     if(el.startsWith('"')){
     //         for(let j=i+1; j<csv.length; j++){

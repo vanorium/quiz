@@ -10,11 +10,15 @@ const reset = (socket) => {
     socket.inRoom = false;
     socket.isCounting = false;
     socket.inGame = false;
+    socket.onBreak = false;
+    socket.atGameEnd = false;
 
     socket.timerIsDoneAcc = 0;
     socket.countingIsDoneAcc = 0;
     socket.score = 0;
     socket.question = 0;
+
+    socket.breakIsDoneAcc = 0;
 
     console.log(socket.id, "reseted");
 };
@@ -62,7 +66,7 @@ Sending a message to others that defined user left
 */
 const leaveRoom = (io, socket) => {
     if (socket.inRoomId) {
-        /* Firstly, the user have to be in a room  */ // Is this user the creator of a room?
+        // Firstly, the user have to be in a room
         if (socket.inRoomId != socket.id) {
             socket.leave(socket.inRoomId); // Removing from the set of joined sockets
             updateRoomUsers(io, socket.inRoomId); // Sending this information

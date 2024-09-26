@@ -137,6 +137,7 @@ body {
 }
 
 .option {
+    position: relative;
     width: 100%;
     background: var(--interactive-l);
     border-radius: 0.4rem;
@@ -159,4 +160,56 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(255, 255, 255, 0.1);
+}
+
+.space-between{
+    justify-content: space-between;
+}
+
+.bar{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.timer{
+    transition: 0.14s ease-in-out;
+    background: white;
+    border-radius: 4rem;
+    height: 1rem;
+}
+
+
+.timer-active{
+    animation-name: timer;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes timer {
+    from{
+        width: 100%;
+    }
+
+    to{
+        width: 0;
+    }
+}
+
+@keyframes smooth {
+    from{
+        opacity: 0;
+        scale: 0.825;
+    }
+
+    to{
+        opacity: 100%;
+        scale: 1;
+    }
+}
+
+.smooth-active{
+    animation-name: smooth;
+    animation-duration: 0.33s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
 }

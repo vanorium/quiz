@@ -33,7 +33,7 @@ const handleRoomLogic = (io, socket) => {
 
     /*
     From 'Lobby' component.
-    creating the list of users (updateRoomUsers) and updating the status of the room.
+    Сreating the list of users (updateRoomUsers) and updating the status of the room.
     */
     socket.on("joinRoom_final", (joinedRoom) => {
         updateRoomUsers(io, joinedRoom);
