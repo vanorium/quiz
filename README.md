@@ -18,15 +18,15 @@ A quiz template based on **React** + **Vite** + **Socket.io**
 
 1. Firstly, enabling the server (initially it will be started localy):
 
-`cd server`
+- `cd server`
 
-`npm run start`
+- `npm run start`
 
 
 2. Then, client-side
-`cd ../client`
+- `cd ../client`
 
-`npm run dev`
+- `npm run dev`
 
 ### Client-side building 
 
