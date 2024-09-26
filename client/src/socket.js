@@ -1,1 +1,1 @@
-const socket = io('http://localhost:8080')
+const socket = io(process.env.SOCKET_URL)
