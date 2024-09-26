@@ -32,6 +32,7 @@ A quiz template based on **React** + **Vite** + **Socket.io**
 ### Client-side building 
 
 in /client
+
 `npm run build`
 
 A collection of builded files will be collected in a folder "dist"
