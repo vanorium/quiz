@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Answer from "./Answer.jsx";
 import { useNavigate } from "react-router-dom";
 
-const timeToAnswer = 5;
+const timeToAnswer = 8;
 
 export default function Game() {
     const navigate = useNavigate();

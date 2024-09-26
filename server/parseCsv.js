@@ -1,5 +1,5 @@
 const parseCsv = (csv) => {
-    csv = csv.replaceAll(" ", "").replaceAll("\n", ",").split(",");
+    csv = csv.trim().replaceAll("\n", ",").split(",");
     const removeList = [];
 
     // for a couple of answers ("1,2,3...")

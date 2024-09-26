@@ -1,10 +1,8 @@
 const { all_updateRooms } = require("./room/roomUtils.js");
 const parseCsv = require("../parseCsv.js");
+const quiz = require("../quiz.js");
 
-const csv = `вопрос1, сложность2, 1, 2, 3, 4, 0
-вопрос2, сложность3, 2, 1, 2, 3, 1`;
-
-const questions = parseCsv(csv);
+const questions = parseCsv(quiz);
 
 const handlerCountingLogic = (io, socket) => {
     socket.on("startGame", () => {

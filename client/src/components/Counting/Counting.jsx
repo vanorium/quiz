@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import s from './counting.module.css'
 import { useNavigate } from 'react-router-dom';
 
-const wait = 4
+const wait = 5
 
 export default function Counting() {
     

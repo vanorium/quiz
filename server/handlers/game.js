@@ -83,8 +83,10 @@ const handleGameLogic = (io, socket) => {
     });
 
     socket.on("setAnswer", (i) => {
+        i++
         const owner = io.sockets.sockets.get(socket.inRoomId);
 
+        console.log(i, owner.questions[owner.question].correct)
         const add = Number(i == owner.questions[owner.question].correct);
         socket.score += add;
 
