@@ -24,14 +24,11 @@ A quiz template based on **React** + **Vite** + **Socket.io**
 
 
 2. Then, client-side
-<<<<<<< HEAD
-- `cd ../client`
-
-=======
 
 - `cd ../client`
 
->>>>>>> 6820a8ec5f4ba3dad490f3a62ed6f334ed91cbd3
+- `cd ../client`
+
 - `npm run dev`
 
 ### Client-side building 
