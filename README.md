@@ -1,6 +1,6 @@
 # Quiz
 
-A quiz template based on **React** + **Vite** + **Socket.io** 
+A quiz template based on **React** + **Vite** + **Socket.io**
 
 ### Requirements
 
