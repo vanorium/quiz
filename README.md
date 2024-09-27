@@ -27,8 +27,6 @@ A quiz template based on **React** + **Vite** + **Socket.io**
 
 - `cd ../client`
 
-- `cd ../client`
-
 - `npm run dev`
 
 ### Client-side building 
