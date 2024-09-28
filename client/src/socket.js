@@ -1,1 +1,1 @@
-const socket = io('https://quiz-gvhm.onrender.com')
+const socket = io(process.env.NEXT_PUBLIC_SOCKET_URL)
