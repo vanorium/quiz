@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import s from "./lobby.module.css";
 import RoomOption from "../RoomOption/RoomOption.jsx";
 import { useNavigate } from "react-router-dom";
+import socket from "../../socket.js"
 
 export default function Lobby() {
     const navigate = useNavigate();

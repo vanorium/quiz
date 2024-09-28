@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import s from './counting.module.css'
 import { useNavigate } from 'react-router-dom';
+import socket from "../../socket.js"
 
 const wait = 5
 

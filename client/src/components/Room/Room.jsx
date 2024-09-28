@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import User from "./User.jsx";
 import { useNavigate } from "react-router-dom";
+import socket from "../../socket.js"
 
 export default function Room() {
     const [users, setUsers] = useState([]);

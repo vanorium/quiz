@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import User from "../Break/User.jsx";
 import { useNavigate } from "react-router-dom";
+import socket from "../../socket.js"
 
 export default function End() {
     const [top, setTop] = useState([]);

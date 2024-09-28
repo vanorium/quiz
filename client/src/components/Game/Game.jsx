@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Answer from "./Answer.jsx";
 import { useNavigate } from "react-router-dom";
+import socket from "../../socket.js"
 
 const timeToAnswer = 8;
 

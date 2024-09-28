@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import User from "./User.jsx";
 import { useNavigate } from "react-router-dom";
+import socket from "../../socket.js"
 
 const breakTime = 4;
 
