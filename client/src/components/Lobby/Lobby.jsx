@@ -19,7 +19,7 @@ export default function Lobby() {
         socket.on("updateRooms", setRooms);
 
         socket.once("roomCreated", roomCreated);
-        socket.once("joinRoom_final", joinRoom_final);
+        socket.once("go2room", () => navigate("/room"));
 
         socket.emit("getName");
         socket.once("getName", setName);
@@ -36,11 +36,6 @@ export default function Lobby() {
 
     const joinRoom = (ownerId) => {
         if (isNameCorrect()) socket.emit("joinRoom", ownerId, name);
-    };
-
-    const joinRoom_final = (roomId) => {
-        navigate("/room");
-        socket.emit("joinRoom_final", roomId);
     };
 
     const handleSetName = (event) => {

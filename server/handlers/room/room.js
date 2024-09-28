@@ -28,15 +28,15 @@ const handleRoomLogic = (io, socket) => {
         socket.join(joinedRoom);
 
         // Now, addresing a user to '/room', then load a list
-        socket.emit("joinRoom_final", joinedRoom);
+        socket.emit("go2room");
     });
 
     /*
-    From 'Lobby' component.
+    From 'Room' component.
     Сreating the list of users (updateRoomUsers) and updating the status of the room.
     */
-    socket.on("joinRoom_final", (joinedRoom) => {
-        updateRoomUsers(io, joinedRoom);
+    socket.on("joinRoom_final", () => {
+        updateRoomUsers(io, socket.inRoomId);
         all_updateRooms(io);
     });
 

@@ -34,6 +34,7 @@ export default function Game() {
                 console.error(`Do not change the url (/game)`);
                 navigate("/");
             }
+            else socket.emit('setupRound')
         });
 
         const handleGetQuestion = (msg) => getQuestion(msg);

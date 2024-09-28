@@ -20,6 +20,9 @@ export default function Room() {
                 console.error(`Do not change the url (/room)`);
                 navigate("/");
             }
+            else{
+                socket.emit('joinRoom_final')
+            }
         });
 
         //defining who the user is

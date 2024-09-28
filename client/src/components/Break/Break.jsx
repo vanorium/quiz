@@ -31,16 +31,15 @@ export default function Break() {
 
         socket.on("stopInterval", () => clearInterval(interval));
 
-        const handleReturnToGame = () => {
+        const go2game = () => {
             navigate("/game");
-            socket.emit("initialSetupRound_final");
         };
 
-        socket.on("returnToGame", handleReturnToGame);
+        socket.on("returnToGame", go2game);
 
         return () => {
             socket.off("getTop", setTop);
-            socket.off("returnToGame", handleReturnToGame);
+            socket.off("returnToGame", go2game);
         };
     }, []);
 

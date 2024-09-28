@@ -31,9 +31,8 @@ export default function Counting() {
             }
         }, 250);
 
-        const handleInitialSetupRound = () => {
+        const handleGo2Game = () => {
             navigate('/game')
-            socket.emit('initialSetupRound_final')
         }
 
         const handleStopInterval = () => {
@@ -42,11 +41,11 @@ export default function Counting() {
 
         socket.on('stopInterval', handleStopInterval)
 
-        socket.on('initialSetupRound', handleInitialSetupRound)
+        socket.on('go2game', handleGo2Game)
 
         return () => {
             clearInterval(interval)
-            socket.off('initialSetupRound', handleInitialSetupRound)
+            socket.off('go2game', handleGo2Game)
             socket.off('stopInterval', handleStopInterval)
         };
     }, []);

@@ -95,7 +95,7 @@ const handleGameLogic = (io, socket) => {
         console.log(socket.id, socket.score);
     });
 
-    socket.on("initialSetupRound_final", () => setupRound(io, socket));
+    socket.on("setupRound", () => setupRound(io, socket));
 };
 
 module.exports = { handleGameLogic, setupRound };

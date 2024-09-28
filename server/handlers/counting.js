@@ -46,7 +46,7 @@ const handlerCountingLogic = (io, socket) => {
                     socket.inGame = true;
                     socket.score = 0;
                     console.log(socket.id, "is going to game");
-                    socket.emit("initialSetupRound");
+                    socket.emit("go2game");
                 });
             }
         }
